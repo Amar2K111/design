@@ -46,17 +46,17 @@ const rows = [
 
 export default function ComparisonTable() {
   return (
-    <section className="bg-beton px-6 py-20">
+    <section className="bg-surface px-6 py-20">
       <div className="mx-auto max-w-content">
-        <div className="surface-dark overflow-hidden">
+        <div className="surface-brand overflow-hidden">
           <div className="grid grid-cols-2 border-b border-white/15">
-            <div className="border-r border-white/15 px-5 py-4 sm:px-7">
-              <p className="font-display text-[15px] font-bold text-calque/75">
+            <div className="border-r border-white/15 px-5 py-5 sm:px-8 sm:py-6">
+              <p className="font-display text-[14px] font-bold uppercase tracking-wide text-background/55 sm:text-[15px]">
                 Aujourd&rsquo;hui
               </p>
             </div>
-            <div className="px-5 py-4 sm:px-7">
-              <p className="font-display text-[15px] font-bold text-blue">
+            <div className="bg-white/[0.08] px-5 py-5 sm:px-8 sm:py-6">
+              <p className="font-display text-[15px] font-bold text-background sm:text-[16px]">
                 Avec Materia
               </p>
             </div>
@@ -67,10 +67,10 @@ export default function ComparisonTable() {
               key={i}
               className="grid grid-cols-2 border-b border-white/15 last:border-b-0"
             >
-              <div className="border-r border-white/15 px-5 py-4 text-[14px] leading-snug text-calque/75 sm:px-7 sm:text-[15px]">
+              <div className="border-r border-white/15 px-5 py-5 text-[14px] leading-relaxed text-background/60 sm:px-8 sm:py-5 sm:text-[15px]">
                 {row.avant}
               </div>
-              <div className="flex items-start gap-2 px-5 py-4 text-[14px] leading-snug text-calque sm:px-7 sm:text-[15px]">
+              <div className="flex items-start gap-2.5 bg-white/[0.04] px-5 py-5 text-[14px] leading-relaxed text-background sm:px-8 sm:py-5 sm:text-[15px]">
                 <CheckIcon />
                 <span>{row.apres}</span>
               </div>
@@ -78,11 +78,11 @@ export default function ComparisonTable() {
           ))}
         </div>
 
-        <div className="mt-8 max-w-2xl">
-          <p className="font-display text-lg font-bold text-encre">
+        <div className="mt-10 max-w-2xl">
+          <p className="font-display text-lg font-bold text-foreground">
             Là, chaque ligne répond exactement à l&rsquo;autre.
           </p>
-          <p className="mt-2 text-[15px] leading-relaxed text-encre-soft">
+          <p className="mt-2 text-[15px] leading-relaxed text-muted">
             Moins de temps passé à préparer chaque dossier. Plus de capacité
             pour répondre aux marchés qui valent vraiment le coup.
           </p>

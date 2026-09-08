@@ -35,14 +35,14 @@ const stats = [
 
 export default function ProblemStats() {
   return (
-    <section className="border-y border-ligne bg-calque px-6 py-20">
+    <section className="border-y border-border bg-background px-6 py-20">
       <div className="mx-auto max-w-content">
         <div className="max-w-2xl">
-          <h2 className="font-display text-[2rem] font-bold leading-tight text-encre sm:text-[2.4rem]">
+          <h2 className="font-display text-[2rem] font-bold leading-tight text-foreground sm:text-[2.4rem]">
             À chaque nouvel appel d&rsquo;offres, vous recommencez presque
             tout
           </h2>
-          <p className="mt-4 text-[17px] leading-relaxed text-encre-soft">
+          <p className="mt-4 text-[17px] leading-relaxed text-muted">
             Répondre à un appel d&rsquo;offres ne devrait pas commencer par
             des heures de lecture et de copier-coller. Materia transforme ce
             travail manuel en un processus guidé, du DCE jusqu&rsquo;au
@@ -52,11 +52,11 @@ export default function ProblemStats() {
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {problemes.map((p) => (
-            <div key={p.titre} className="surface-dark p-6">
-              <p className="font-display text-[15px] font-bold text-calque">
+            <div key={p.titre} className="surface-neutral p-6">
+              <p className="font-display text-[15px] font-bold text-foreground">
                 {p.titre}
               </p>
-              <p className="mt-2 text-[14px] leading-snug text-calque/80">
+              <p className="mt-2 text-[14px] leading-snug text-muted">
                 {p.detail}
               </p>
             </div>
@@ -65,11 +65,11 @@ export default function ProblemStats() {
 
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {stats.map((s) => (
-            <div key={s.label} className="surface-dark px-6 py-8">
-              <p className="font-display text-3xl font-bold text-calque">
+            <div key={s.label} className="surface-elevated px-6 py-8">
+              <p className="font-display text-3xl font-bold text-foreground">
                 {s.valeur}
               </p>
-              <p className="mt-2 text-[14px] leading-snug text-calque/80">
+              <p className="mt-2 text-[14px] leading-snug text-muted">
                 {s.label}
               </p>
             </div>

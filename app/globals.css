@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Neutrals (~90%) */
+  --background: #ffffff;
+  --surface: #f7f8fa;
+  --foreground: #0a0a0a;
+  --muted: #667085;
+  --border: #d9e0ea;
+
+  /* Materia brand (~7%) */
+  --primary: #165ef0;
+  --primary-hover: #1252d4;
+  --brand: #0b3b8f;
+  --brand-hover: #094078;
+  --brand-light: #eaf2ff;
+
+  /* Functional (~3%) */
+  --success: #18a558;
+  --warning: #d99000;
+  --error: #d64545;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -18,50 +39,73 @@ html {
 }
 
 body {
-  background-color: #FFFFFF;
-  color: #0A0A0A;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 ::selection {
-  background-color: #0B3B8F;
-  color: #FFFFFF;
+  background-color: var(--brand);
+  color: var(--background);
 }
 
 .focus-ring {
   outline: none;
 }
 .focus-ring:focus-visible {
-  outline: 2px solid #155EEF;
+  outline: 2px solid var(--primary);
   outline-offset: 3px;
 }
 
 @layer components {
+  /* Neutral surfaces — default for most content */
+  .surface-neutral {
+    @apply rounded-doc border border-border bg-background;
+  }
+
+  .surface-elevated {
+    @apply rounded-doc border border-border bg-surface;
+  }
+
+  /* Brand surface — strategic sections only (comparison, proof, footer) */
+  .surface-brand {
+    @apply rounded-doc border border-white/15 bg-brand text-background;
+  }
+
+  /* @deprecated alias — use surface-brand */
   .surface-dark {
-    @apply rounded-doc border border-white/15 bg-blue-dark text-calque;
+    @apply rounded-doc border border-white/15 bg-brand text-background;
   }
 
-  .text-on-dark {
-    @apply text-calque;
+  .text-on-brand {
+    @apply text-background;
   }
 
-  .text-on-dark-muted {
-    @apply text-calque/75;
+  .text-on-brand-muted {
+    @apply text-background/75;
   }
 
-  .text-on-dark-subtle {
-    @apply text-calque/60;
+  .text-on-brand-subtle {
+    @apply text-background/60;
   }
 
   .badge-light {
-    @apply rounded-doc bg-blue-light px-2.5 py-1 text-[12px] font-semibold text-blue-dark;
+    @apply rounded-doc bg-brand-light px-2.5 py-1 text-[12px] font-semibold text-brand;
+  }
+
+  .btn-primary {
+    @apply focus-ring rounded-doc bg-primary px-6 py-3.5 text-center text-[15px] font-semibold text-background transition-colors hover:bg-primary-hover active:bg-primary-hover;
+  }
+
+  .btn-primary-sm {
+    @apply focus-ring rounded-doc bg-primary px-4 py-2.5 text-[15px] font-semibold text-background transition-colors hover:bg-primary-hover active:bg-primary-hover;
   }
 }
 
 /* Blueprint-style graph texture, used once, sparingly, behind the hero widget */
 .bp-grid {
   background-image:
-    linear-gradient(#E5E7EB 1px, transparent 1px),
-    linear-gradient(90deg, #E5E7EB 1px, transparent 1px);
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
@@ -70,15 +114,31 @@ body {
 }
 
 @keyframes trace-in {
-  0% { opacity: 0; transform: translateY(6px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-trace > * {
   animation: trace-in 0.5s ease-out both;
 }
-.animate-trace > *:nth-child(1) { animation-delay: 0.05s; }
-.animate-trace > *:nth-child(2) { animation-delay: 0.2s; }
-.animate-trace > *:nth-child(3) { animation-delay: 0.35s; }
-.animate-trace > *:nth-child(4) { animation-delay: 0.5s; }
-.animate-trace > *:nth-child(5) { animation-delay: 0.65s; }
+.animate-trace > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.animate-trace > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.animate-trace > *:nth-child(3) {
+  animation-delay: 0.35s;
+}
+.animate-trace > *:nth-child(4) {
+  animation-delay: 0.5s;
+}
+.animate-trace > *:nth-child(5) {
+  animation-delay: 0.65s;
+}

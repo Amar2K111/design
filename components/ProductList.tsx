@@ -28,13 +28,16 @@ const items = [
 
 export default function ProductList() {
   return (
-    <section id="fonctionnalites" className="border-y border-ligne bg-calque px-6 py-20">
+    <section
+      id="fonctionnalites"
+      className="border-y border-border bg-background px-6 py-20"
+    >
       <div className="mx-auto max-w-content">
         <div className="max-w-xl">
-          <h2 className="font-display text-[2rem] font-bold leading-tight text-encre sm:text-[2.4rem]">
+          <h2 className="font-display text-[2rem] font-bold leading-tight text-foreground sm:text-[2.4rem]">
             Ce que produit Materia
           </h2>
-          <p className="mt-4 text-[17px] leading-relaxed text-encre-soft">
+          <p className="mt-4 text-[17px] leading-relaxed text-muted">
             Chaque brique reste sous votre contrôle. Le badge indique le rôle
             de Materia sur chaque élément. Jamais un mémoire fini livré tel
             quel. Renseignez votre entreprise une fois, réutilisez ses
@@ -42,21 +45,21 @@ export default function ProductList() {
           </p>
         </div>
 
-        <ul className="mt-10 flex flex-col divide-y divide-ligne border-t border-ligne">
+        <ul className="mt-10 flex flex-col divide-y divide-border border-t border-border">
           {items.map((item, i) => (
             <li
               key={item.titre}
               className="flex flex-col gap-2 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
             >
               <div className="flex items-baseline gap-4">
-                <span className="font-mono text-[13px] text-encre-soft/60">
+                <span className="font-mono text-[13px] text-muted/60">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <p className="font-display text-[16px] font-bold text-encre">
+                  <p className="font-display text-[16px] font-bold text-foreground">
                     {item.titre}
                   </p>
-                  <p className="mt-0.5 text-[14px] text-encre-soft">
+                  <p className="mt-0.5 text-[14px] text-muted">
                     {item.detail}
                   </p>
                 </div>

@@ -38,21 +38,21 @@ export default function FAQ() {
     <section id="faq" className="px-6 py-20">
       <div className="mx-auto max-w-content">
         <div className="max-w-xl">
-          <h2 className="font-display text-[2rem] font-bold leading-tight text-encre sm:text-[2.4rem]">
+          <h2 className="font-display text-[2rem] font-bold leading-tight text-foreground sm:text-[2.4rem]">
             Questions fréquentes
           </h2>
         </div>
 
-        <div className="mt-10 divide-y divide-ligne border-t border-ligne">
+        <div className="mt-10 divide-y divide-border border-t border-border">
           {faqs.map((f) => (
             <details key={f.q} className="group py-5">
-              <summary className="focus-ring flex cursor-pointer list-none items-start justify-between gap-4 rounded-doc text-[16px] font-semibold text-encre">
+              <summary className="focus-ring flex cursor-pointer list-none items-start justify-between gap-4 rounded-doc text-[16px] font-semibold text-foreground">
                 {f.q}
-                <span className="mt-0.5 shrink-0 text-encre-soft transition-transform group-open:rotate-45">
+                <span className="mt-0.5 shrink-0 text-muted transition-transform group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-encre-soft">
+              <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-muted">
                 {f.r}
               </p>
             </details>

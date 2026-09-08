@@ -62,49 +62,52 @@ function Etat({ v, check }: { v: Etat; check?: boolean }) {
   if (v === "oui")
     return (
       <span
-        className={`inline-flex items-center gap-1.5 font-semibold ${check ? "text-success" : "text-calque/90"}`}
+        className={`inline-flex items-center gap-1.5 font-semibold ${check ? "text-success" : "text-background/90"}`}
       >
         {check && <CheckIcon />}
         Oui
       </span>
     );
   if (v === "non")
-    return <span className="text-calque/70">Non</span>;
-  return <span className="text-calque/75">Selon le cas</span>;
+    return <span className="text-background/70">Non</span>;
+  return <span className="text-background/75">Selon le cas</span>;
 }
 
 export default function CategoryComparison() {
   return (
-    <section className="bg-calque px-6 py-20">
+    <section className="bg-background px-6 py-20">
       <div className="mx-auto max-w-content">
         <div className="max-w-xl">
-          <h2 className="font-display text-[2rem] font-bold leading-tight text-encre sm:text-[2.4rem]">
+          <h2 className="font-display text-[2rem] font-bold leading-tight text-foreground sm:text-[2.4rem]">
             Ce qui change selon la méthode
           </h2>
         </div>
 
         <div className="mt-10 overflow-x-auto">
-          <table className="surface-dark w-full min-w-[640px] border-collapse overflow-hidden text-[14px]">
+          <table className="surface-brand w-full min-w-[640px] border-collapse overflow-hidden text-[14px]">
             <thead>
               <tr className="border-b border-white/15 text-left">
-                <th className="px-5 py-4 font-display text-[13px] font-bold uppercase tracking-wide text-calque/75">
+                <th className="px-5 py-4 font-display text-[13px] font-bold uppercase tracking-wide text-background/75">
                   &nbsp;
                 </th>
-                <th className="px-5 py-4 font-display text-[13px] font-bold uppercase tracking-wide text-calque/75">
+                <th className="px-5 py-4 font-display text-[13px] font-bold uppercase tracking-wide text-background/75">
                   Méthode manuelle actuelle
                 </th>
-                <th className="px-5 py-4 font-display text-[13px] font-bold uppercase tracking-wide text-calque/75">
+                <th className="px-5 py-4 font-display text-[13px] font-bold uppercase tracking-wide text-background/75">
                   IA générative généraliste
                 </th>
-                <th className="px-5 py-4 font-display text-[13px] font-bold uppercase tracking-wide text-blue">
+                <th className="bg-white/[0.08] px-5 py-4 font-display text-[13px] font-bold uppercase tracking-wide text-background">
                   Materia
                 </th>
               </tr>
             </thead>
             <tbody>
               {criteres.map((c) => (
-                <tr key={c.label} className="border-b border-white/15 last:border-b-0">
-                  <td className="px-5 py-4 font-medium text-calque">
+                <tr
+                  key={c.label}
+                  className="border-b border-white/15 last:border-b-0"
+                >
+                  <td className="px-5 py-4 font-medium text-background">
                     {c.label}
                   </td>
                   <td className="px-5 py-4">
@@ -113,7 +116,7 @@ export default function CategoryComparison() {
                   <td className="px-5 py-4">
                     <Etat v={c.ia} />
                   </td>
-                  <td className="px-5 py-4">
+                  <td className="bg-white/[0.04] px-5 py-4">
                     <Etat v={c.materia} check />
                   </td>
                 </tr>

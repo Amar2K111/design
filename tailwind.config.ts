@@ -5,31 +5,43 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand
-        black: "#0A0A0A",
-        "black-secondary": "#111111",
-        navy: "#0A0A0A",
-        "navy-hover": "#111111",
-        blue: "#155EEF",
-        "blue-hover": "#0B3B8F",
-        "blue-dark": "#0B3B8F",
-        "blue-secondary": "#0B3B8F",
-        "blue-light": "#EAF2FF",
+        /* Semantic tokens */
+        background: "var(--background)",
+        surface: "var(--surface)",
+        foreground: "var(--foreground)",
+        muted: "var(--muted)",
+        border: "var(--border)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          hover: "var(--primary-hover)",
+        },
+        brand: {
+          DEFAULT: "var(--brand)",
+          hover: "var(--brand-hover)",
+          light: "var(--brand-light)",
+        },
+        success: "var(--success)",
+        warning: "var(--warning)",
+        error: "var(--error)",
 
-        // Semantic aliases
-        beton: "#FAFAFA",
-        calque: "#FFFFFF",
-        encre: "#0A0A0A",
-        "encre-soft": "#6B7280",
-        acier: "#0B3B8F",
-        "acier-soft": "#6B7280",
-        ligne: "#E5E7EB",
-
-        // Status
-        success: "#16A34A",
-        warning: "#F59E0B",
-        error: "#DC2626",
-        info: "#155EEF",
+        /* Legacy aliases — mapped to semantic tokens for gradual migration */
+        black: "var(--foreground)",
+        "black-secondary": "var(--foreground)",
+        calque: "var(--background)",
+        beton: "var(--surface)",
+        encre: "var(--foreground)",
+        "encre-soft": "var(--muted)",
+        ligne: "var(--border)",
+        navy: "var(--brand)",
+        "navy-hover": "var(--brand-hover)",
+        blue: "var(--primary)",
+        "blue-hover": "var(--primary-hover)",
+        "blue-dark": "var(--brand)",
+        "blue-secondary": "var(--brand)",
+        "blue-light": "var(--brand-light)",
+        acier: "var(--brand)",
+        "acier-soft": "var(--muted)",
+        info: "var(--primary)",
       },
       fontFamily: {
         display: ["var(--font-display)"],
