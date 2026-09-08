@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #0A0A0A;
+}
+
+::selection {
+  background-color: #0B3B8F;
+  color: #FFFFFF;
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #155EEF;
+  outline-offset: 3px;
+}
+
+@layer components {
+  .surface-dark {
+    @apply rounded-doc border border-white/15 bg-blue-dark text-calque;
+  }
+
+  .text-on-dark {
+    @apply text-calque;
+  }
+
+  .text-on-dark-muted {
+    @apply text-calque/75;
+  }
+
+  .text-on-dark-subtle {
+    @apply text-calque/60;
+  }
+
+  .badge-light {
+    @apply rounded-doc bg-blue-light px-2.5 py-1 text-[12px] font-semibold text-blue-dark;
+  }
+}
+
+/* Blueprint-style graph texture, used once, sparingly, behind the hero widget */
+.bp-grid {
+  background-image:
+    linear-gradient(#E5E7EB 1px, transparent 1px),
+    linear-gradient(90deg, #E5E7EB 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.stamp-rotate {
+  transform: rotate(-3deg);
+}
+
+@keyframes trace-in {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-trace > * {
+  animation: trace-in 0.5s ease-out both;
+}
+.animate-trace > *:nth-child(1) { animation-delay: 0.05s; }
+.animate-trace > *:nth-child(2) { animation-delay: 0.2s; }
+.animate-trace > *:nth-child(3) { animation-delay: 0.35s; }
+.animate-trace > *:nth-child(4) { animation-delay: 0.5s; }
+.animate-trace > *:nth-child(5) { animation-delay: 0.65s; }
